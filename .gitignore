@@ -37,4 +37,4 @@ yarn-error.log*
 next-env.d.ts
 
 # Rules of Engagement file
-ROE.md
+docs/ROE.md

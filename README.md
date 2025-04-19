@@ -1,62 +1,27 @@
-# Portfolio v2
+# Webbies
 
-## Project Overview
-A modern, professional portfolio website built with Next.js and TypeScript. This project showcases skills, experience, and projects in an engaging and accessible manner.
+## About Me
 
-## Features
-- Dark beautiful theme with gradient colors and light mode support
-- Fully responsive design optimized for all devices
-- High-performance implementation (90+ Lighthouse score)
-- Interactive project showcase with filtering capabilities
-- Smooth animations and transitions with Motion (motion.dev)
-- Accessibility focused (WCAG AA compliant)
-- Frontend-first approach with mock backend (ready for future integration)
+Senior Software Engineer with 8+ years of experience building robust web applications. I specialize in full-stack development with expertise in React, Next.js, Node.js, and cloud technologies. My passion lies in creating elegant solutions to complex problems with a focus on performance, accessibility, and user experience.
 
-## Tech Stack
-- **Framework**: Next.js 15.3 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 4.1
-- **Animation**: Motion (motion.dev)
-- **Form Handling**: React Hook Form
-- **Deployment**: Vercel
+I've led development teams on projects ranging from e-commerce platforms to data visualization tools, always focusing on maintainable code and scalable architecture. When I'm not coding, I enjoy contributing to open-source projects, writing technical articles, and mentoring junior developers.
 
-## Getting Started
+## About This Portfolio
 
-### Prerequisites
-- Node.js 18.17.0 or later
-- pnpm (recommended) or npm
+This portfolio showcases my professional journey, projects, and technical writing. Built with modern technologies:
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/portfolio-v2.git
-cd portfolio-v2
+- **Next.js** with App Router
+- **React** with TypeScript
+- **Tailwind CSS** for styling
+- **Motion** for animations
 
-# Install dependencies
-pnpm install
+The site features a custom dark theme with gradient accents, interactive project showcases, and a blog where I share technical insights and lessons learned throughout my career.
 
-# Start development server
-pnpm dev
-```
+[View Resume](https://drive.google.com/file/d/1tLnhpqkx5velSVuislj3g21d0ejsgjSw/view)
 
-Visit [http://localhost:3000](http://localhost:3000) to see the application.
+## Connect With Me
 
-## Project Structure
-The project follows a clean, organized structure:
-- `src/app`: Pages and layouts using Next.js App Router
-- `src/components`: Reusable React components
-- `src/hooks`: Custom React hooks
-- `src/lib`: Utility functions and constants
-- `src/styles`: Global styles and Tailwind configuration
-
-## Documentation
-- [Project Plan](PROJECT_PLAN.md): Detailed project timeline and milestones
-- [Tech Stack](TECH_STACK.md): Comprehensive overview of technologies used
-- [Implementation Guide](IMPLEMENTATION_GUIDE.md): Development workflow and best practices
-- [Rules of Engagement](ROE.md): Project guidelines and standards
-
-## Deployment
-The site is automatically deployed to Vercel on push to the main branch.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+- [LinkedIn](#)
+- [GitHub](#)
+- [Twitter](#)
+- [Email](mailto:john@example.com)
