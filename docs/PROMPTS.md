@@ -1,13 +1,11 @@
-# AI Agent Prompts by Development Phase
+# Client-Focused AI Agent Prompts
 
-## Phase 1: Project Setup & Core Structure
-
-### Prompt for Phase 1
+## Phase 1: Client Conversion Foundation
 
 ```
-Create a Next.js portfolio website with TypeScript and Tailwind CSS. For this first phase, focus only on:
+Create a Next.js portfolio website with TypeScript and Tailwind CSS specifically designed to attract potential clients and make it easy for them to hire me. For this first phase, focus on:
 
-1. Project initialization with the following:
+1. Project initialization:
    - Next.js with App Router
    - TypeScript (strict mode)
    - Tailwind CSS
@@ -17,204 +15,203 @@ Create a Next.js portfolio website with TypeScript and Tailwind CSS. For this fi
    - Background: #0f172a
    - Text: #f8fafc
    - Primary Accent: #8b5cf6
-   - Create a simple gradient utility: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)
+   - Create a gradient utility: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)
 
-3. Create a basic layout with:
-   - Header with navigation (Home, About, Projects, Blog, Contact)
-   - Mobile-friendly navigation menu
-   - Footer with simple content
+3. Create a conversion-focused layout with:
+   - Header with navigation (Home, Services, Work, Blog, Contact)
+   - Prominent "Available for Hire" status indicator
+   - CTA button for "Schedule a Consultation" in the header
+   - Mobile-friendly navigation that prioritizes contact options
+   - Footer with contact information and social proof elements
    - Dark/light mode toggle that saves preference to localStorage
 
-4. Implement basic responsive behavior that works on mobile, tablet, and desktop.
+4. Implement a client-focused homepage structure (don't add content yet):
+   - Hero section with value proposition area
+   - Client testimonial section
+   - Services overview section
+   - Featured work section
+   - Contact/booking section
 
-Keep the code clean and well-organized. Use semantic HTML elements, and ensure the site is accessible (WCAG AA standards). Don't implement any page content yet - just the structure.
+Make the site fully responsive and follow accessibility standards (WCAG AA). Structure the code to be modular and maintainable with proper TypeScript typing.
 
-The files should include:
-- src/app/layout.tsx (main layout)
-- src/app/page.tsx (empty homepage)
-- src/components/layout/header.tsx
-- src/components/layout/footer.tsx
-- src/components/ui/theme-toggle.tsx
-- tailwind.config.js (with theme configuration)
-
-Keep comments minimal and human-like, focusing only on complex logic.
+The foundation should emphasize professionalism and make it easy for potential clients to understand my value and take action to hire me.
 ```
 
-## Phase 2: Homepage & About Section
-
-### Prompt for Phase 2
+## Phase 2: Value Proposition & Services
 
 ```
-Building on the existing portfolio project, implement the homepage and about section with the following features:
+Building on the portfolio website foundation, implement the homepage and services sections that clearly communicate my value to potential clients:
 
 1. Homepage hero section:
-   - Large heading with your name "John Webbies"
-   - Professional title "Senior Software Engineer"
-   - Short introduction (1-2 sentences)
-   - Animated gradient text effect for the heading
-   - Simple fade-in animation using Motion
-   - CTA button linking to the projects section
+   - Strong headline focusing on client problems I solve
+   - Professional subtitle "Senior Software Engineer"
+   - Brief value proposition (1-2 sentences about client benefits)
+   - "Available for Projects" status with estimated availability date
+   - Two CTAs: "See My Work" and "Schedule a Consultation"
+   - Subtle gradient animations that feel professional
 
-2. About section:
-   - Professional summary (2-3 paragraphs)
-   - Skills visualization with 3 categories:
-     - Frontend: React, Next.js, TypeScript, etc.
-     - Backend: Node.js, Express, etc.
-     - Tools: Git, Docker, etc.
-   - Interactive skill bars or tags with hover effects
-   - Profile image with gradient border
-   - Resume download button (linking to: https://drive.google.com/file/d/1tLnhpqkx5velSVuislj3g21d0ejsgjSw/view)
+2. Services section:
+   - Create 3-4 clear service offerings with:
+     - Service title (e.g., "Custom Web Application Development")
+     - Description focusing on client benefits
+     - Key technologies used (as visually appealing tags)
+     - Typical timeframe or process
+   - Add "Custom Project" option for unique client needs
+   - Include mini case study example for each service
+   - Add testimonial relevant to each service type
 
-3. Implement scroll-triggered animations:
-   - Elements should fade in as user scrolls
-   - Subtle animations that enhance but don't distract
+3. Social proof elements:
+   - Client testimonials carousel (3-4 testimonials)
+   - Logos of past clients or notable companies
+   - Key metrics or achievements (projects completed, years of experience)
+   - Simple process explanation (discovery → proposal → development → delivery)
 
-All components should be responsive and maintain the dark theme established in Phase 1. Ensure all text is readable with sufficient contrast, and all interactive elements are accessible.
+Implement subtle animations using Motion that enhance the professional feel. Ensure all components are responsive and maintain accessibility standards. Focus on clear user paths that guide potential clients toward contacting me.
 
-Focus on building reusable components. Implement proper TypeScript interfaces for all props. Use the Context API for any state that needs to be shared between components.
+All content should emphasize the benefits to clients rather than just listing skills. Use persuasive, confident language that positions me as a solution provider.
 ```
 
-## Phase 3: Projects & Case Studies
-
-### Prompt for Phase 3
+## Phase 3: Work Portfolio & Case Studies
 
 ```
-Continue building the portfolio website by implementing the projects section and case studies functionality:
+Enhance the portfolio website with a client-focused project showcase and detailed case studies:
 
-1. Projects grid:
-   - Create a filterable grid of projects
+1. Projects overview page:
+   - Filterable grid of projects with categories relevant to client needs
    - Each project card should include:
-     - Project image/thumbnail
-     - Title
-     - Short description
-     - Technologies used (as tags)
-     - "View Details" button
-   - Add filter buttons for different categories (Web, Mobile, Design, etc.)
-   - Implement smooth transitions when filtering
-   - Include at least 4 sample projects
+     - Compelling project image
+     - Clear project title
+     - Client name (if public)
+     - Key problem solved
+     - Primary technologies used
+     - Measurable outcome or result
+   - Filter by industry, technology, or problem type
+   - Sort options (latest, most impactful)
 
-2. Case study template:
-   - Create a detailed case study template for projects
-   - Include sections for:
-     - Project overview
-     - Problem statement
-     - Solution approach
-     - Technologies used
-     - Key features
-     - Outcomes/results
-     - Visual showcase (multiple images)
-   - Implement next/previous project navigation
-   - Add a "View Live" button where applicable
+2. Case study template focusing on client results:
+   - Client challenge section (the problem that needed solving)
+   - Solution approach with process explanation
+   - Technology decisions with justifications
+   - Key features implemented with visual examples
+   - Measurable outcomes and business impact
+   - Client testimonial related to the project
+   - Technologies used displayed as interactive tags
+   - Clear "Similar Project Needed?" CTA at the bottom
 
-3. Dynamic routing:
-   - Set up dynamic routes for case studies (/projects/[slug])
-   - Create sample JSON data for projects
-   - Implement proper data fetching
+3. Dynamic routing and data:
+   - Set up dynamic routes for case studies (/work/[slug])
+   - Create structured JSON data for 4-6 showcase projects
+   - Implement schema for project data with TypeScript interfaces
 
-Make sure all components are responsive and follow the established design system. Use consistent animations for transitions. Ensure all content is accessible and adheres to WCAG AA standards.
+Make all components responsive and accessible. Use animations thoughtfully to highlight key information. Throughout the case studies, emphasize problem-solving skills, communication process, and measurable client outcomes.
 
-Keep the code modular and reusable. Use TypeScript for type safety and document any complex logic with minimal, human-like comments.
+Each case study should tell a compelling story that helps potential clients envision how I could solve their problems too. Include specific metrics where possible (e.g., "Reduced load time by 40%", "Increased conversion by 25%").
 ```
 
-## Phase 4: Blog Section
-
-### Prompt for Phase 4
+## Phase 4: Blog & Authority Content
 
 ```
-Implement the blog section for the portfolio website with the following features:
+Implement a strategic blog section designed to demonstrate expertise to potential clients:
 
-1. Blog listing page:
-   - Grid of blog post cards
-   - Each card should display:
-     - Featured image
-     - Title
+1. Blog overview page:
+   - Featured article with prominent placement
+   - Article grid with clear categorization
+   - Each article card should include:
+     - Relevant image
+     - Compelling title
+     - Brief description
+     - Estimated reading time
      - Publication date
-     - Reading time estimate
-     - Category tags
-   - Implement category filtering
-   - Add a search functionality for articles
-   - Sort options (newest, oldest, most popular)
+     - Category tag(s)
+   - Category filter focused on client-relevant topics
+   - Search functionality for finding specific content
 
-2. Article template:
-   - Clean, readable article layout
-   - Typography optimized for reading
+2. Article template optimized for establishing authority:
+   - Clean, professional reading experience
+   - Clear typography with excellent readability
    - Table of contents for longer articles
-   - Code snippets with syntax highlighting
-   - Image support with captions
-   - Author information section
-   - Share buttons for social media
+   - Code snippets with syntax highlighting (when relevant)
+   - Highlighted key takeaways or insights
+   - Author section with brief expertise highlight
+   - Related articles section
+   - "Hire Me" CTA within the content
 
-3. Related posts:
-   - Show 2-3 related posts at the end of each article
-   - Base relations on shared categories/tags
+3. Strategic content examples:
+   - Create 2-3 sample articles that demonstrate expertise
+   - Focus topics on common client problems and solutions
+   - Include technical insights that showcase depth of knowledge
+   - Add problem/solution frameworks clients can relate to
 
-4. Data structure:
-   - Create sample blog post data in JSON format
-   - Set up dynamic routing (/blog/[slug])
-   - Implement proper metadata for SEO
+4. SEO implementation:
+   - Proper metadata for all pages
+   - Structured data for articles
+   - Focus on client-relevant search terms
+   - Optimized heading structure
 
-All components should maintain the established dark theme with gradient accents and support light mode. Ensure the reading experience is comfortable with appropriate font sizes, line heights, and contrast.
+Make sure all content is professionally presented with appropriate spacing and typography. The blog should position me as a thought leader while maintaining a client-acquisition focus through strategic CTAs and relevant topics.
 
-Focus on performance by implementing:
-- Lazy loading for images
-- Pagination or infinite scroll for the blog listing
-- Proper caching strategies
-
-Maintain accessibility standards and ensure the blog is fully responsive across all device sizes.
+Include an email capture form for visitors who want to be notified of new articles, creating a nurturing path for potential clients who aren't ready to hire immediately.
 ```
 
-## Phase 5: Contact & Final Features
-
-### Prompt for Phase 5
+## Phase 5: Contact & Booking System
 
 ```
-Complete the portfolio website by implementing the contact section and final features:
+Implement a frictionless contact and booking system designed to convert interested visitors into clients:
 
-1. Contact form:
-   - Clean, accessible form with fields for:
+1. Contact page with multiple options:
+   - Professional contact form with fields for:
      - Name
      - Email
-     - Subject
-     - Message
-   - Form validation with helpful error messages
-   - Submit button with loading state
-   - Success/error feedback after submission
-   - Mock API endpoint for form submission
+     - Company/Organization
+     - Project type (dropdown with my service categories)
+     - Budget range (optional dropdown)
+     - Project timeline (optional dropdown)
+     - Project description
+   - Direct email alternative clearly displayed
+   - Response time expectation ("I typically respond within 24 hours")
 
-2. Interactive resume section:
-   - Timeline visualization of work experience
-   - Education history
-   - Certifications and achievements
-   - Downloadable PDF resume option
-   - Subtle animations for timeline elements
+2. Consultation booking system:
+   - Integration with Cal.com or similar scheduling tool
+   - Available time slots for 30-minute consultations
+   - Brief questionnaire before booking
+   - Confirmation and reminder system
+   - Option to add to Google/Outlook calendar
 
-3. Additional features:
-   - Social media links with hover effects
-   - "Back to top" button that appears when scrolling
-   - Page transition animations between routes
-   - Implement prefetching for internal links
-   - Save theme preference to localStorage
+3. About/credentials section:
+   - Professional photo
+   - Detailed professional background focused on client benefits
+   - Specialized skills and expertise areas
+   - Certifications and education
+   - Work approach and philosophy
+   - Personal interests (brief and relevant)
 
-4. Polish existing sections:
-   - Ensure consistent styling across all pages
-   - Add subtle hover states for interactive elements
-   - Implement any missing responsive behaviors
-   - Optimize loading of all assets
+4. FAQ section addressing client concerns:
+   - Typical engagement process
+   - Payment terms and methods
+   - Project timeline expectations
+   - Communication during projects
+   - Maintenance and support options
+   - Common client questions
 
-Focus on creating a cohesive experience across the entire site. Ensure all animations are purposeful and enhance the user experience without being distracting.
+Add subtle animations for form submission and booking confirmation. Ensure all forms have proper validation with helpful error messages. The entire contact experience should feel professional, reassuring, and efficient.
 
-Implement proper error handling throughout, especially for the contact form. Make sure all features work properly in both dark and light modes.
+Implement a "success state" after form submission that sets expectations for next steps. Optimize the path from initial interest to scheduled consultation, minimizing friction at each step.
 ```
 
-## Phase 6: Optimization & Deployment
-
-### Prompt for Phase 6
+## Phase 6: Conversion Optimization & Launch
 
 ```
-Optimize the portfolio website for performance, accessibility, and SEO to prepare it for deployment:
+Finalize the portfolio website with conversion optimization features and prepare for launch:
 
-1. Performance optimization:
-   - Audit and optimize all images (format, size, compression)
+1. Conversion path optimization:
+   - Implement strategic CTAs throughout the site
+   - Create a cohesive user journey from any entry point to contact
+   - Add testimonials at key decision points
+   - Implement subtle animations for important elements
+   - Ensure mobile conversion paths are optimized
+
+2. Performance optimization:
+   - Audit and optimize images (WebP format, appropriate sizing)
    - Implement proper lazy loading for offscreen content
    - Optimize font loading with next/font
    - Analyze and reduce JavaScript bundle size
@@ -222,133 +219,80 @@ Optimize the portfolio website for performance, accessibility, and SEO to prepar
    - Implement code splitting for larger components
    - Target a Lighthouse performance score of 90+
 
-2. Accessibility improvements:
-   - Run a comprehensive accessibility audit
-   - Fix any WCAG AA compliance issues
-   - Test keyboard navigation throughout the site
-   - Verify screen reader compatibility
-   - Ensure sufficient color contrast in all states
-   - Add skip-to-content link
+3. Analytics and tracking:
+   - Set up Google Analytics 4
+   - Configure conversion goals for contact submissions
+   - Add UTM parameter support for campaign tracking
+   - Implement basic event tracking for important interactions
+   - Create a simple dashboard for monitoring performance
 
-3. SEO implementation:
-   - Add metadata for all pages
-   - Create a sitemap.xml and robots.txt
-   - Implement Open Graph and Twitter card metadata
+4. Final polish and testing:
+   - Ensure consistent styling across all pages
+   - Verify all links and forms work properly
+   - Test across browsers (Chrome, Firefox, Safari, Edge)
+   - Verify mobile experience on multiple device sizes
+   - Perform accessibility audit and fix issues
+   - Test all interactive features and animations
+
+5. SEO implementation:
+   - Verify metadata for all pages
+   - Implement sitemap.xml and robots.txt
    - Add structured data (Schema.org) for relevant content
+   - Verify all images have descriptive alt text
    - Ensure proper heading hierarchy
-   - Optimize for Core Web Vitals
 
-4. Final testing:
-   - Cross-browser testing (Chrome, Firefox, Safari, Edge)
-   - Device testing (mobile, tablet, desktop)
-   - Test all interactive features
-   - Verify form submissions
-   - Confirm all links work properly
-
-5. Deployment preparation:
-   - Set up environment variables
-   - Create build scripts
-   - Prepare for deployment to a hosting platform
-
-The goal is to ensure the website is fully optimized, accessible, and ready for production. Focus on addressing any remaining issues and polishing the user experience.
+All elements should come together to create a cohesive, professional experience that effectively showcases my expertise and makes it easy for potential clients to hire me. The final site should have a distinctive visual identity while maintaining excellent usability and performance.
 ```
 
-## SEO Strategy Implementation
-
-### SEO Implementation Details
+## Tailored Content Strategy
 
 ```
-Implement these specific SEO optimizations for the portfolio website:
+Develop content that strategically positions me to attract ideal clients:
 
-1. Metadata setup:
-   - Create a custom metadata component to use across pages
-   - Implement dynamic title and description for each page
-   - Add canonical URLs for all pages
-   - Include appropriate robots directives
+1. Professional bio variations:
+   - Long-form about page content (300-400 words)
+   - Medium bio for case studies (150-200 words)
+   - Short bio for blog posts (50-100 words)
+   - Each should emphasize different aspects of expertise relevant to clients
 
-2. Structured data:
-   - Person schema for the About page
-   - Article schema for blog posts
-   - WebSite schema for the homepage
-   - Use JSON-LD format for all schemas
+2. Service descriptions:
+   - Write compelling service descriptions for:
+     - Custom Web Application Development
+     - Frontend Architecture & Development
+     - Technical Consultation & Code Reviews
+     - Application Performance Optimization
+   - Each should follow this structure:
+     - Problem statement that resonates with clients
+     - Solution approach highlighting my methodology
+     - Benefits to the client
+     - Technologies and tools utilized
+     - Example outcomes or results
 
-3. Technical SEO:
-   - Configure next-sitemap to generate sitemap.xml
-   - Create a robots.txt file with appropriate directives
-   - Implement proper 404 page
-   - Add rel="noopener" to external links
+3. Client testimonials:
+   - Create 5-6 sample testimonials focusing on:
+     - Problem solving ability
+     - Communication and reliability
+     - Technical expertise
+     - Project outcomes and success
+     - Working relationship
+   - Format for easy placement throughout the site
 
-4. Content optimization:
-   - Ensure descriptive alt text for all images
-   - Create SEO-friendly URLs for all pages
-   - Implement proper heading hierarchy (H1 → H6)
-   - Add breadcrumb navigation where appropriate
+4. Case study content:
+   - Detailed outline for 3 case studies following this structure:
+     - Client industry and size (anonymized if needed)
+     - Business challenge and objectives
+     - Technical challenges
+     - Solution approach and implementation
+     - Technologies and methodologies used
+     - Results with specific metrics when possible
+     - Client feedback
+     - Lessons learned
 
-5. Social sharing:
-   - Implement Open Graph tags for Facebook sharing
-   - Add Twitter Card markup
-   - Create appropriate social sharing images
+5. Blog article ideas:
+   - List of 10 article topics that demonstrate expertise
+   - 1-2 paragraph synopsis for each topic
+   - Target keywords and client problems addressed
+   - Focus on showcasing problem-solving abilities
 
-6. Performance factors:
-   - Optimize Largest Contentful Paint (LCP)
-   - Minimize Cumulative Layout Shift (CLS)
-   - Reduce First Input Delay (FID) and Total Blocking Time (TBT)
-   - Ensure fast Time to First Byte (TTFB)
-
-7. Tools integration:
-   - Add Google Tag Manager container
-   - Prepare for analytics integration
-   - Set up basic event tracking for important interactions
-
-Use the Next SEO library to simplify implementation where appropriate. Document the SEO strategy for future reference. Test all implemented features using tools like Lighthouse and structured data testing tools.
-```
-
-## State Management Implementation
-
-### State Management Details
-
-```
-Implement a comprehensive state management approach for the portfolio website using React Context API:
-
-1. Theme context:
-   - Create a ThemeProvider component
-   - Store dark/light mode preference
-   - Persist preference to localStorage
-   - Add utility functions for theme manipulation
-   - Implement smooth theme transitions
-
-2. Navigation context:
-   - Track current active route
-   - Store mobile menu open/closed state
-   - Manage scroll position for "back to top" button
-   - Handle route change animations
-
-3. Projects filter context:
-   - Store active category filters
-   - Keep track of filtered projects
-   - Manage sort order preferences
-   - Handle filter animations
-
-4. Blog context:
-   - Store search query state
-   - Manage category filter state
-   - Track reading progress in articles
-   - Handle blog pagination state
-
-5. Contact form context:
-   - Manage form validation state
-   - Track submission status
-   - Handle success/error messages
-   - Store form data for review step
-
-For each context:
-1. Create a dedicated file in src/context directory
-2. Implement a provider component with appropriate state
-3. Create a custom hook for accessing the context
-4. Add TypeScript interfaces for all state and actions
-5. Document usage with brief comments
-
-Use localStorage where appropriate to persist user preferences. Keep the state normalized to avoid duplication. Implement proper error handling for any asynchronous actions.
-
-The goal is to create a modular, maintainable state management system that follows React best practices.
+All content should be professional, confident but not arrogant, and focused on client benefits rather than just technical details. Use accessible language that communicates complex concepts clearly without unnecessary jargon.
 ```
