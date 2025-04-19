@@ -19,6 +19,20 @@ The site features a custom dark theme with gradient accents, interactive project
 
 [View Resume](https://drive.google.com/file/d/1tLnhpqkx5velSVuislj3g21d0ejsgjSw/view)
 
+## Technical Details
+
+This project is built with [Next.js](https://nextjs.org), leveraging its powerful features for server-side rendering, static site generation, and API routes.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about the technologies used in this portfolio:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [React Documentation](https://reactjs.org/docs/getting-started.html) - explore React concepts.
+- [Tailwind CSS](https://tailwindcss.com/docs) - utility-first CSS framework.
+
 ## Connect With Me
 
 - [LinkedIn](#)

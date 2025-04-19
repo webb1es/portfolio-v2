@@ -4,7 +4,18 @@
 /node_modules
 /.pnp
 .pnp.js
-.idea
+.yarn/install-state.gz
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
 
 # testing
 /coverage
@@ -24,6 +35,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
 # local env files
 .env*.local
@@ -36,3 +48,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# cache
+.cache/
+.turbo
+
+# logs
+logs
+*.log
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
