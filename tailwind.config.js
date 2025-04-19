@@ -81,6 +81,42 @@ module.exports = {
         'highlight-start-light': '#7c3aed',
         'highlight-end-light': '#0891b2',
       },
+      animation: {
+        'gradient': 'gradient 8s ease infinite',
+        'fadeIn': 'fadeIn 0.6s ease-out forwards',
+        'slideIn': 'slideIn 0.5s ease-out forwards',
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'bounce': 'bounce 1s infinite',
+      },
+      keyframes: {
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        fadeIn: {
+          'from': { opacity: '0', transform: 'translateY(10px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideIn: {
+          'from': { opacity: '0', transform: 'translateX(-20px)' },
+          'to': { opacity: '1', transform: 'translateX(0)' },
+        },
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '.5' },
+        },
+        bounce: {
+          '0%, 100%': {
+            transform: 'translateY(-25%)',
+            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
+          },
+          '50%': {
+            transform: 'translateY(0)',
+            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
+      },
     },
   },
   plugins: [],
