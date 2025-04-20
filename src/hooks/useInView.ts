@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef, RefObject } from 'react';
 
 interface InViewOptions {
-  threshold?: number;
+  threshold?: number | number[];
   triggerOnce?: boolean;
   rootMargin?: string;
 }
 
 export function useInView<T extends HTMLElement = HTMLDivElement>(
-  options: InViewOptions = {}
-): [RefObject<T>, boolean] {
-  const { 
-    threshold = 0.1, 
+    options: InViewOptions = {}
+): [RefObject<T | null>, boolean] {
+  const {
+    threshold = 0.1,
     triggerOnce = false,
     rootMargin = '0px'
   } = options;
@@ -20,32 +20,34 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element) {
+      return;
+    }
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update state when element comes into view
-        if (entry.isIntersecting) {
-          setIsInView(true);
-
-          // If triggerOnce is true, disconnect the observer after triggering
-          if (triggerOnce) {
-            observer.disconnect();
+        ([entry], obs) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            if (triggerOnce) {
+              // Disconnect observer after first intersection if triggerOnce is true
+              obs.unobserve(element);
+              obs.disconnect();
+            }
+          } else if (!triggerOnce) {
+            // Reset if not triggerOnce and element leaves view
+            setIsInView(false);
           }
-        } else if (!triggerOnce) {
-          // If triggerOnce is false, update state when element goes out of view
-          setIsInView(false);
-        }
-      },
-      { threshold, rootMargin }
+        },
+        { threshold, rootMargin }
     );
 
     observer.observe(element);
 
+    // Cleanup observer on unmount or dependency change
     return () => {
       observer.disconnect();
     };
-  }, [threshold, triggerOnce, rootMargin]);
+  }, [threshold, triggerOnce, rootMargin, ref]); // ref included for exhaustive-deps
 
   return [ref, isInView];
 }
