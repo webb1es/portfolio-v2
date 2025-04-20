@@ -1,18 +1,53 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { AnimatedElement } from '../ui/AnimatedElement';
+import { ServiceDescription } from '@/content/types';
 
 export function ContactSection() {
+  const [services, setServices] = useState<ServiceDescription[]>([]);
+  
+  useEffect(() => {
+    // Load services from our content
+    const { getAllServices } = require('@/content/services');
+    setServices(getAllServices());
+  }, []);
+  
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Let&apos;s Work Together
-          </h2>
-          <p className="text-foreground-secondary text-center mb-12">
-            Have a project in mind? I&apos;m currently available for freelance work.
-          </p>
+          <AnimatedElement>
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Let&apos;s Work Together
+            </h2>
+          </AnimatedElement>
           
-          <div className="bg-surface p-8 rounded-lg border border-border">
+          <AnimatedElement delay={0.1}>
+            <p className="text-foreground-secondary text-center mb-8">
+              Have a project in mind? I&apos;m currently available for freelance work.
+            </p>
+          </AnimatedElement>
+          
+          {/* Services overview */}
+          {services.length > 0 && (
+            <AnimatedElement delay={0.2} className="mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {services.slice(0, 4).map((service, index) => (
+                  <div key={service.id} className="bg-surface border border-border rounded-lg p-4">
+                    <h3 className="font-semibold mb-2">{service.title}</h3>
+                    <p className="text-sm text-foreground-secondary">
+                      {/* Show first benefit */}
+                      {service.benefits[0]}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedElement>
+          )}
+          
+          <AnimatedElement delay={0.3} className="bg-surface p-8 rounded-lg border border-border">
             <div className="text-center mb-8">
               <h3 className="text-xl font-semibold mb-4">
                 Ready to discuss your project?
@@ -65,10 +100,10 @@ export function ContactSection() {
                   <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-2"></span>
                   <span>Available for new projects</span>
                 </div>
-                <p className="text-foreground-secondary text-sm mt-1">Currently accepting new projects starting June 2023</p>
+                <p className="text-foreground-secondary text-sm mt-1">Currently accepting new projects starting June 2024</p>
               </div>
             </div>
-          </div>
+          </AnimatedElement>
         </div>
       </div>
     </section>

@@ -7,6 +7,9 @@ import { CaseStudyHeader } from '@/components/work/CaseStudyHeader';
 import { CaseStudyContent } from '@/components/work/CaseStudyContent';
 import { CaseStudyFooter } from '@/components/work/CaseStudyFooter';
 import { NotFound } from '@/components/work/NotFound';
+import { BiographySection } from '@/components/sections/BiographySection';
+import { ContentAwareCTA } from '@/components/ui/ContentAwareCTA';
+import { StrategicTestimonial } from '@/components/ui/StrategicTestimonial';
 
 export default function CaseStudyPage() {
     const params = useParams();
@@ -53,6 +56,26 @@ export default function CaseStudyPage() {
         <div className="py-8 md:py-16">
             <CaseStudyHeader project={project} />
             <CaseStudyContent project={project} />
+            
+            {/* Strategic testimonial based on project type */}
+            <StrategicTestimonial 
+                context={`${project.industry} ${project.technologies.map(t => t.name).join(' ')}`} 
+                style="feature"
+            />
+            
+            {/* Bio section with appropriate focus for this project */}
+            <BiographySection 
+                variant="case-study" 
+                focusArea={project.type === 'web-application' ? 'technical problem-solving' : 'consulting and collaboration'} 
+            />
+            
+            {/* Content-aware CTA */}
+            <ContentAwareCTA
+                context={`${project.industry} ${project.technologies.map(t => t.name).join(' ')}`}
+                title="Need a Similar Solution?"
+                description="Let's discuss how I can help you achieve comparable results for your business."
+            />
+            
             <CaseStudyFooter project={project} />
         </div>
     );

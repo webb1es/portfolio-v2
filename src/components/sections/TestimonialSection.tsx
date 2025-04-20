@@ -8,8 +8,39 @@ export function TestimonialSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  // Testimonials data
-  const testimonials = [
+  // Import testimonials from content
+  const [strategicTestimonials, setStrategicTestimonials] = useState<any[]>([]);
+  
+  // Load testimonials from content
+  useEffect(() => {
+    const { getAllTestimonials } = require('@/content/testimonials');
+    const contentTestimonials = getAllTestimonials();
+    
+    // Map to the expected format
+    const formattedTestimonials = contentTestimonials.map((t: any, index: number) => {
+      const colorMap: {[key: string]: string} = {
+        'problem-solving': 'primary',
+        'communication': 'secondary',
+        'technical-expertise': 'tertiary',
+        'outcomes': 'primary',
+        'relationship': 'secondary'
+      };
+      
+      return {
+        id: t.id,
+        name: t.isAnonymized ? t.clientTitle : t.clientName,
+        role: t.isAnonymized ? '' : `${t.clientTitle}${t.clientCompany ? `, ${t.clientCompany}` : ''}`,
+        initials: t.isAnonymized ? 'CL' : t.clientName.split(' ').map((n: string) => n[0]).join(''),
+        color: colorMap[t.focus] || 'primary',
+        content: t.content.length > 200 ? `${t.content.substring(0, 200)}...` : t.content
+      };
+    });
+    
+    setStrategicTestimonials(formattedTestimonials);
+  }, []);
+  
+  // Use the loaded testimonials or fallback to defaults if not loaded yet
+  const testimonials = strategicTestimonials.length > 0 ? strategicTestimonials : [
     {
       id: 1,
       name: "Sarah Chen",

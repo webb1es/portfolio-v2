@@ -8,6 +8,8 @@ import { ArticleContent } from '@/components/blog/ArticleContent';
 import { RelatedArticles } from '@/components/blog/RelatedArticles';
 import { NotFound } from '@/components/blog/NotFound';
 import { AnimatedElement } from '@/components/ui/AnimatedElement';
+import { AuthorBio } from '@/components/blog/AuthorBio';
+import { ContentAwareCTA } from '@/components/ui/ContentAwareCTA';
 
 export default function BlogArticlePage() {
     const params = useParams();
@@ -76,9 +78,27 @@ export default function BlogArticlePage() {
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     <ArticleContent article={article} />
+                    
+                    <AnimatedElement delay={0.2}>
+                        <AuthorBio 
+                            variant="short" 
+                            context={article.categories.join(' ') + ' ' + article.tags.join(' ')}
+                        />
+                    </AnimatedElement>
 
-                    <AnimatedElement delay={0.2} className="mt-16 border-t border-border pt-16">
+                    <AnimatedElement delay={0.3} className="mt-16 border-t border-border pt-16">
                         <RelatedArticles articles={relatedArticles} />
+                    </AnimatedElement>
+                    
+                    <AnimatedElement delay={0.4} className="mt-16">
+                        <ContentAwareCTA 
+                            context={article.categories.join(' ') + ' ' + article.tags.join(' ')}
+                            title="Need Help With a Similar Project?"
+                            description="I specialize in solving complex technical challenges like those discussed in this article."
+                            ctaText="Schedule a Consultation"
+                            showCase={true}
+                            showBlog={false}
+                        />
                     </AnimatedElement>
                 </div>
             </div>

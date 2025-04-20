@@ -10,7 +10,7 @@ Before implementing any phase, please note:
 4. Use modern, clean code practices with TypeScript and Tailwind CSS
 5. Focus on conversion-oriented design that makes it easy for clients to hire me
 
-## Phase 1: Client Conversion Foundation
+## Phase 1: Client Conversion Foundation ✅
 
 ```
 Create a Next.js portfolio website with TypeScript and Tailwind CSS specifically designed to attract potential clients and make it easy for them to hire me. For this first phase, focus on:
@@ -48,7 +48,7 @@ The foundation should emphasize professionalism and make it easy for potential c
 Read docs/THEMES.md carefully for the specific color palette, and follow docs/ROE.md for code quality guidelines.
 ```
 
-## Phase 2: Value Proposition & Services
+## Phase 2: Value Proposition & Services ✅
 
 ```
 Building on the portfolio website foundation, implement the homepage and services sections that clearly communicate my value to potential clients:
@@ -84,7 +84,7 @@ All content should emphasize the benefits to clients rather than just listing sk
 Continue to use the color palette in docs/THEMES.md and follow the code quality guidelines in docs/ROE.md. Refer to docs/PLAN.md for the overall client conversion strategy.
 ```
 
-## Phase 3: Work Portfolio & Case Studies
+## Phase 3: Work Portfolio & Case Studies ✅
 
 ```
 Enhance the portfolio website with a client-focused project showcase and detailed case studies:
@@ -123,7 +123,7 @@ Each case study should tell a compelling story that helps potential clients envi
 Continue using the color palette in docs/THEMES.md, with the gradients used strategically to highlight important elements. Follow the code quality standards in docs/ROE.md and the client conversion approach in docs/PLAN.md.
 ```
 
-## Phase 4: Blog & Authority Content
+## Phase 4: Blog & Authority Content ✅
 
 ```
 Implement a strategic blog section designed to demonstrate expertise to potential clients:
@@ -170,7 +170,7 @@ Include an email capture form for visitors who want to be notified of new articl
 Continue using the color scheme defined in docs/THEMES.md, maintain the code quality standards in docs/ROE.md, and focus on the client conversion goals outlined in docs/PLAN.md.
 ```
 
-## Phase 5: Contact & Booking System
+## Phase 5: Contact & Booking System ✅
 
 ```
 Implement a frictionless contact and booking system designed to convert interested visitors into clients:
@@ -217,7 +217,7 @@ Implement a "success state" after form submission that sets expectations for nex
 Continue using the color scheme from docs/THEMES.md, follow the code quality guidelines in docs/ROE.md, and maintain focus on the client acquisition goals outlined in docs/PLAN.md.
 ```
 
-## Phase 6: Conversion Optimization & Launch
+## Phase 6: Conversion Optimization & Launch ✅
 
 ```
 Finalize the portfolio website with conversion optimization features and prepare for launch:
@@ -265,11 +265,14 @@ All elements should come together to create a cohesive, professional experience 
 Continue using the color palette from docs/THEMES.md, adhere to the code quality standards in docs/ROE.md, and ensure the final product meets the client acquisition goals in docs/PLAN.md.
 ```
 
-## Tailored Content Strategy
+## Tailored Content Strategy ✅
 
 ```
 Develop content that strategically positions me to attract ideal clients:
-
+- keep code concise and clean
+- do not make changes out of scope
+- do not make unnecessary improvements out of scope without asking for permission
+- keep comments human-like and only important ones
 1. Professional bio variations:
    - Long-form about page content (300-400 words)
    - Medium bio for case studies (150-200 words)
