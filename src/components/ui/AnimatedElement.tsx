@@ -16,13 +16,16 @@ export function AnimatedElement({
   threshold = 0.1,
   className = ''
 }: AnimatedElementProps) {
-  const [ref, isInView] = useInView({ threshold });
+  const [ref, isInView] = useInView({ threshold, triggerOnce: true });
 
+  // Limit max delay to create snappier animations
+  const safeDelay = Math.min(delay, 0.2);
+  
   return (
     <div 
       ref={ref}
       className={`animate-on-scroll ${isInView ? 'is-visible' : ''} ${className}`}
-      style={{ transitionDelay: delay ? `${delay}s` : undefined }}
+      style={{ transitionDelay: safeDelay ? `${safeDelay}s` : undefined }}
     >
       {children}
     </div>

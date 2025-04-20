@@ -47,10 +47,8 @@ export function BiographySection({ variant = 'about', focusArea }: BiographySect
       <div className="container mx-auto px-4">
         <AnimatedElement>
           <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-        </AnimatedElement>
         
-        <div className="max-w-3xl mx-auto bg-surface p-8 rounded-lg border border-border">
-          <AnimatedElement delay={0.1}>
+          <div className="max-w-3xl mx-auto bg-surface p-8 rounded-lg border border-border">
             <div className="prose prose-lg dark:prose-invert max-w-none">
               {bio.content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-4">
@@ -58,8 +56,8 @@ export function BiographySection({ variant = 'about', focusArea }: BiographySect
                 </p>
               ))}
             </div>
-          </AnimatedElement>
-        </div>
+          </div>
+        </AnimatedElement>
       </div>
     </section>
   );

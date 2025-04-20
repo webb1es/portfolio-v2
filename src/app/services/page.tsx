@@ -36,7 +36,7 @@ export default function ServicesPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">Services</h1>
         </AnimatedElement>
         
-        <AnimatedElement delay={0.1}>
+        <AnimatedElement delay={0.05}>
           <p className="text-foreground-secondary text-center max-w-3xl mx-auto mb-12">
             I specialize in solving complex technical challenges and delivering solutions that drive real business results.
             Explore my services below to see how I can help your business.
@@ -44,13 +44,13 @@ export default function ServicesPage() {
         </AnimatedElement>
         
         {/* Service tabs */}
-        <AnimatedElement delay={0.2} className="mb-12">
+        <AnimatedElement delay={0.1} className="mb-12">
           <div className="flex flex-wrap justify-center gap-2 md:gap-4">
             {services.map((service, index) => (
               <button
                 key={service.id}
                 onClick={() => setActiveService(service.id)}
-                className={`px-4 py-2 rounded-md transition-all ${
+                className={`px-4 py-2 rounded-md transition-all duration-150 ${
                   activeService === service.id 
                     ? 'bg-accent-primary text-white' 
                     : 'bg-surface hover:bg-accent-primary/10 border border-border'
@@ -62,11 +62,11 @@ export default function ServicesPage() {
           </div>
         </AnimatedElement>
         
-        {/* Active service detail */}
+        {/* Active service detail - simplified animations for better perceived performance */}
         {getActiveService() && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
-              <AnimatedElement delay={0.3} className="bg-surface rounded-lg border border-border p-6 mb-6">
+              <AnimatedElement delay={0.1} className="bg-surface rounded-lg border border-border p-6 mb-6">
                 <h2 className="text-2xl font-bold mb-4">{getActiveService()?.title}</h2>
                 <h3 className="text-xl font-semibold mb-4">The Challenge</h3>
                 <p className="text-foreground-secondary mb-6">{getActiveService()?.problem}</p>
@@ -75,7 +75,8 @@ export default function ServicesPage() {
                 <p className="text-foreground-secondary">{getActiveService()?.approach}</p>
               </AnimatedElement>
               
-              <AnimatedElement delay={0.4} className="bg-surface rounded-lg border border-border p-6 mb-6">
+              {/* Key Benefits section */}
+              <div className="bg-surface rounded-lg border border-border p-6 mb-6">
                 <h3 className="text-xl font-semibold mb-4">Key Benefits</h3>
                 <ul className="space-y-3">
                   {getActiveService()?.benefits.map((benefit, index) => (
@@ -87,9 +88,10 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-              </AnimatedElement>
+              </div>
               
-              <AnimatedElement delay={0.5} className="bg-surface rounded-lg border border-border p-6">
+              {/* Real Results section */}
+              <div className="bg-surface rounded-lg border border-border p-6">
                 <h3 className="text-xl font-semibold mb-4">Real Results</h3>
                 <div className="space-y-3">
                   {getActiveService()?.outcomes.map((outcome, index) => (
@@ -101,11 +103,12 @@ export default function ServicesPage() {
                     </div>
                   ))}
                 </div>
-              </AnimatedElement>
+              </div>
             </div>
             
             <div>
-              <AnimatedElement delay={0.6} className="bg-surface rounded-lg border border-border p-6 mb-6">
+              {/* Technologies section */}
+              <AnimatedElement delay={0.15} className="bg-surface rounded-lg border border-border p-6 mb-6">
                 <h3 className="text-lg font-semibold mb-4">Technologies & Skills</h3>
                 <div className="flex flex-wrap gap-2">
                   {getActiveService()?.technologies.map((tech, index) => (
@@ -119,30 +122,30 @@ export default function ServicesPage() {
                 </div>
               </AnimatedElement>
               
-              <AnimatedElement delay={0.7}>
+              {/* Testimonial - strategic animation here */}
+              <AnimatedElement delay={0.2}>
                 <StrategicTestimonial context={getActiveService()?.title || ''} />
               </AnimatedElement>
               
-              <AnimatedElement delay={0.8} className="mt-6">
-                <div className="bg-surface rounded-lg border border-border p-6">
-                  <h3 className="text-lg font-semibold mb-4">Ready to Get Started?</h3>
-                  <p className="text-foreground-secondary mb-4">
-                    Let's discuss how I can help with your specific needs and create a tailored solution for your business.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="w-full bg-primary-gradient text-white px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity text-center block"
-                  >
-                    Schedule a Consultation
-                  </Link>
-                </div>
-              </AnimatedElement>
+              {/* CTA box */}
+              <div className="mt-6 bg-surface rounded-lg border border-border p-6">
+                <h3 className="text-lg font-semibold mb-4">Ready to Get Started?</h3>
+                <p className="text-foreground-secondary mb-4">
+                  Let's discuss how I can help with your specific needs and create a tailored solution for your business.
+                </p>
+                <Link
+                  href="/contact"
+                  className="w-full bg-primary-gradient text-white px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity text-center block"
+                >
+                  Schedule a Consultation
+                </Link>
+              </div>
             </div>
           </div>
         )}
         
-        {/* Custom projects section */}
-        <AnimatedElement delay={0.9} className="bg-surface rounded-lg border border-border p-8 max-w-3xl mx-auto mb-16">
+        {/* Custom projects section - keep animation here as it's a key conversion element */}
+        <AnimatedElement delay={0.1} className="bg-surface rounded-lg border border-border p-8 max-w-3xl mx-auto mb-16">
           <div className="flex items-center mb-6">
             <div className="w-14 h-14 rounded-full bg-primary-gradient flex items-center justify-center text-white mr-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -170,7 +173,7 @@ export default function ServicesPage() {
           <div className="flex justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-primary-gradient text-white px-6 py-3 rounded-md font-medium hover:opacity-90 transition-all hover:scale-105"
+              className="inline-flex items-center bg-primary-gradient text-white px-6 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-200 hover:scale-105"
             >
               Discuss Your Custom Project
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
