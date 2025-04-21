@@ -15,7 +15,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold">
+        <Link href="/" className="text-xl font-bold text-accent-primary">
           Webbies
         </Link>
 

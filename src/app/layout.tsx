@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, JetBrains_Mono, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@/components/analytics/Analytics";
 import { FloatingCTA } from "@/components/ui/FloatingCTA";
+import { CursorGlow } from "@/components/ui/CursorGlow";
 import { WebsiteStructuredData } from "@/components/seo/StructuredData";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: 'swap',
+});
+
+const firaCode = Fira_Code({
+  variable: "--font-fira-code", 
   subsets: ["latin"],
   display: 'swap',
 });
@@ -49,9 +56,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${montserrat.variable} ${jetbrainsMono.variable} ${firaCode.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider>
+          <div className="noise-overlay"></div>
+          <CursorGlow />
           <Header />
           <main className="flex-grow">
             {children}
