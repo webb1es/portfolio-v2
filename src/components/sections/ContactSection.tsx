@@ -83,8 +83,8 @@ export function ContactSection() {
                   </svg>
                   Email
                 </h3>
-                <a href="mailto:contact@example.com" className="text-accent-primary hover:underline">
-                  contact@example.com
+                <a href="mailto:hello@webbies.dev" className="text-accent-primary hover:underline">
+                  hello@webbies.dev
                 </a>
                 <p className="text-foreground-secondary text-sm mt-1">I typically respond within 24 hours</p>
               </div>

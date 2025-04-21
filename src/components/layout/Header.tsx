@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export function Header() {
@@ -14,10 +15,24 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-accent-primary">
-          Webbies
-        </Link>
+        {/* Logo and Avatar */}
+        <div className="flex items-center space-x-4">
+          <div className="relative h-10 w-10 rounded-full p-[2px] bg-instagram-gradient overflow-hidden group">
+            <div className="absolute inset-0 rounded-full bg-instagram-gradient opacity-75 group-hover:opacity-100 transition-opacity"></div>
+            <div className="relative h-full w-full rounded-full overflow-hidden border-2 border-transparent">
+              <Image
+                src="https://drive.google.com/uc?export=view&id=1Di9jDPJyHhh9OPr_d5F1-OmSV5XN3prx"
+                alt="Avatar"
+                width={40}
+                height={40}
+                className="h-full w-full object-cover rounded-full transition-transform group-hover:scale-110 duration-300"
+              />
+            </div>
+          </div>
+          <Link href="/" className="text-xl font-bold text-instagram-gradient">
+            Webbies
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">

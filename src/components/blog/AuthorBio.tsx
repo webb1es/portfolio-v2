@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getBioByType } from '@/content';
 import { Bio } from '@/content/types';
 
@@ -51,12 +52,21 @@ export function AuthorBio({ variant = 'short', context }: AuthorBioProps) {
   return (
     <div className="bg-surface rounded-lg border border-border p-6 mt-8">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-        <div className="w-20 h-20 rounded-full bg-primary-gradient flex items-center justify-center text-white text-2xl font-bold">
-          WM
+        <div className="relative w-20 h-20 rounded-full p-[2px] bg-instagram-gradient overflow-hidden group">
+          <div className="absolute inset-0 rounded-full bg-instagram-gradient opacity-75 group-hover:opacity-100 transition-opacity"></div>
+          <div className="relative h-full w-full rounded-full overflow-hidden border-2 border-transparent">
+            <Image
+              src="https://drive.google.com/uc?export=view&id=1Di9jDPJyHhh9OPr_d5F1-OmSV5XN3prx"
+              alt="Webbies"
+              width={80}
+              height={80}
+              className="h-full w-full object-cover rounded-full transition-transform group-hover:scale-110 duration-300"
+            />
+          </div>
         </div>
         
         <div>
-          <h3 className="text-xl font-bold mb-2">Webster Muchefa</h3>
+          <h3 className="text-xl font-bold mb-2">Webbies</h3>
           <h4 className="text-foreground-secondary mb-3">Senior Software Engineer</h4>
           
           <div className="prose prose-sm dark:prose-invert max-w-none mb-4">

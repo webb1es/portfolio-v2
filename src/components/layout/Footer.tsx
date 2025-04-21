@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -7,14 +8,28 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="relative h-10 w-10 rounded-full p-[2px] bg-instagram-gradient overflow-hidden group">
+                <div className="absolute inset-0 rounded-full bg-instagram-gradient opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative h-full w-full rounded-full overflow-hidden border-2 border-transparent">
+                  <Image
+                    src="https://drive.google.com/uc?export=view&id=1Di9jDPJyHhh9OPr_d5F1-OmSV5XN3prx"
+                    alt="Avatar"
+                    width={40}
+                    height={40}
+                    className="h-full w-full object-cover rounded-full transition-transform group-hover:scale-110 duration-300"
+                  />
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold">Contact</h3>
+            </div>
             <ul className="space-y-2">
               <li>
                 <a 
-                  href="mailto:john@example.com" 
+                  href="mailto:hello@webbies.dev" 
                   className="text-foreground-secondary hover:text-accent-primary transition-colors"
                 >
-                  john@example.com
+                  hello@webbies.dev
                 </a>
               </li>
               <li>
@@ -75,7 +90,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
             <div className="flex space-x-4 mb-4">
               <a 
-                href="https://github.com" 
+                href="https://github.com/webbies" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground-secondary hover:text-accent-primary transition-colors"
@@ -86,7 +101,7 @@ export function Footer() {
                 </svg>
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/webbies" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground-secondary hover:text-accent-primary transition-colors"
@@ -99,7 +114,7 @@ export function Footer() {
                 </svg>
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://twitter.com/wigiwar" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground-secondary hover:text-accent-primary transition-colors"
@@ -111,7 +126,7 @@ export function Footer() {
               </a>
             </div>
             <p className="text-sm text-foreground-secondary">
-              "Webster's technical expertise is matched only by his ability to communicate complex concepts clearly." — Client, E-commerce Platform
+              "Webbies's technical expertise is matched only by their ability to communicate complex concepts clearly." — Client, E-commerce Platform
             </p>
           </div>
         </div>
