@@ -8,6 +8,9 @@
   --foreground: #0f172a;
   --foreground-secondary: #334155;
   
+  /* Border radius variable */
+  --border-radius: 0.5rem;
+  
   /* Instagram-inspired color palette */
   --accent-primary: #833AB4;   /* Instagram Purple */
   --accent-primary-rgb: 131, 58, 180; /* RGB format for animations */
@@ -359,7 +362,7 @@
 /* Card special effects */
 .card-glow {
   box-shadow: 0 4px 10px rgba(var(--accent-primary-rgb), 0.05);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
   overflow: hidden;
 }
@@ -382,13 +385,16 @@
   bottom: 0;
   opacity: 0;
   background: radial-gradient(
-    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    1200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
     rgba(var(--accent-primary-rgb), 0.06),
     transparent 40%
   );
+  border-radius: inherit;
   z-index: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.15s ease;
   pointer-events: none;
+  /* Safari-specific fix for circular gradient */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .card-glow > * {
@@ -761,4 +767,21 @@ body {
   color: transparent;
   background-size: 200% auto;
   animation: gradient 8s ease infinite;
+}
+
+/* Safari-specific fix */
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    .card-glow::after {
+      border-radius: var(--border-radius);
+      -webkit-mask-image: none;
+      background: radial-gradient(
+        1200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(var(--accent-primary-rgb), 0.06),
+        transparent 40%
+      );
+      clip-path: inset(0 round var(--border-radius));
+      -webkit-clip-path: inset(0 round var(--border-radius));
+    }
+  }
 }

@@ -1,22 +1,24 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export function CursorGlow() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Debounce the mouse move for better performance
-    let lastTime = 0;
-    const throttleMs = 10; // Lower value means more responsive but more CPU intensive
+    // For direct DOM manipulation (faster than state updates)
+    const glowElement = glowRef.current;
     
+    // No throttling for better responsiveness
     const handleMouseMove = (e: MouseEvent) => {
-      const now = performance.now();
-      if (now - lastTime < throttleMs) return;
-      lastTime = now;
+      // Direct DOM manipulation for immediate response
+      if (glowElement) {
+        glowElement.style.left = `${e.clientX}px`;
+        glowElement.style.top = `${e.clientY}px`;
+      }
       
-      setPosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
     };
 
@@ -37,25 +39,37 @@ export function CursorGlow() {
 
   return (
     <div
-      className="fixed pointer-events-none z-0 opacity-30 transition-opacity duration-500"
+      className="fixed pointer-events-none z-0 transition-opacity duration-300"
       style={{
         left: 0,
         top: 0,
         width: '100%',
         height: '100%',
-        opacity: isVisible ? 0.12 : 0,
+        opacity: isVisible ? 0.18 : 0,
       }}
     >
       <div
-        className="absolute rounded-full bg-primary-gradient blur-[100px]"
+        ref={glowRef}
         style={{
+          position: 'absolute',
           left: `${position.x}px`,
           top: `${position.y}px`,
-          width: '350px',
-          height: '350px',
+          width: '650px', // Slightly increased for better fade-out
+          height: '650px',
           transform: 'translate(-50%, -50%)',
-          transition: 'left 0.2s linear, top 0.2s linear',
           willChange: 'left, top',
+          // Enhanced gradient with more natural fade-out
+          background: 'radial-gradient(circle, rgba(131, 58, 180, 0.7) 0%, rgba(191, 43, 104, 0.4) 25%, rgba(253, 29, 29, 0.2) 50%, rgba(252, 176, 69, 0.05) 75%, rgba(252, 176, 69, 0) 90%)',
+          borderRadius: '50%',
+          WebkitBorderRadius: '50%',
+          filter: 'blur(200px)', // Slightly increased blur for softer edges
+          WebkitFilter: 'blur(200px)',
+          WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+          WebkitBackfaceVisibility: 'hidden',
+          WebkitTransform: 'translate(-50%, -50%)',
+          transformStyle: 'preserve-3d',
+          WebkitTransformStyle: 'preserve-3d',
+          mixBlendMode: 'plus-lighter',
         }}
       />
     </div>

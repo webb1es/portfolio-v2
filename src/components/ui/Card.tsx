@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import Link from 'next/link';
 
 interface CardProps {
@@ -30,14 +30,17 @@ export function Card({
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!cardRef.current) return;
     
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left; // x position within the element
-    const y = e.clientY - rect.top;  // y position within the element
-    
-    if (cardRef.current) {
+    // Use requestAnimationFrame for smoother performance
+    requestAnimationFrame(() => {
+      if (!cardRef.current) return;
+      
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the element
+      const y = e.clientY - rect.top;  // y position within the element
+      
       cardRef.current.style.setProperty('--mouse-x', `${x}px`);
       cardRef.current.style.setProperty('--mouse-y', `${y}px`);
-    }
+    });
   };
 
   // Base styles for all cards
@@ -94,6 +97,11 @@ export function Card({
         onMouseMove={handleMouseMove}
         ref={cardRef as unknown as React.Ref<HTMLAnchorElement>}
       >
+        {interactive && hoverEffect === 'glow' && (
+          <div className="glow-container">
+            <div className="glow-effect"></div>
+          </div>
+        )}
         {children}
       </Link>
     );
@@ -106,6 +114,11 @@ export function Card({
       onMouseMove={handleMouseMove}
       ref={cardRef}
     >
+      {interactive && hoverEffect === 'glow' && (
+        <div className="glow-container">
+          <div className="glow-effect"></div>
+        </div>
+      )}
       {children}
     </div>
   );
@@ -136,10 +149,12 @@ export function CardBadge({
   children, 
   className = '',
   variant = 'default',
+  style,
 }: { 
   children: ReactNode; 
   className?: string;
   variant?: 'default' | 'gradient' | 'outline';
+  style?: React.CSSProperties;
 }) {
   const variantStyles = {
     default: 'bg-accent-primary/10 text-accent-primary',
@@ -148,7 +163,10 @@ export function CardBadge({
   };
 
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variantStyles[variant]} ${className}`}>
+    <span 
+      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variantStyles[variant]} ${className}`}
+      style={style}
+    >
       {children}
     </span>
   );
