@@ -67,7 +67,6 @@ export default function RootLayout({
           </main>
           <Footer />
           <Analytics />
-          {/* @ts-expect-error Server Component */}
           <FloatingCTA />
           <WebsiteStructuredData 
             website={{
