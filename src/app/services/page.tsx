@@ -69,7 +69,7 @@ export default function ServicesPage() {
               <AnimatedElement delay={0.1}>
                 <Card variant="default" gradientBorder className="mb-6 card-glow">
                   <CardContent>
-                    <h2 className="text-2xl font-bold mb-4 text-accent-primary">{getActiveService()?.title}</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-accent-primary" id={getActiveService()?.id}>{getActiveService()?.title}</h2>
                     <h3 className="text-xl font-semibold mb-4 text-accent-secondary">The Challenge</h3>
                     <p className="text-foreground-secondary mb-6">{getActiveService()?.problem}</p>
                     

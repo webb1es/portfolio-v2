@@ -785,3 +785,225 @@ body {
     }
   }
 }
+
+/* Embla Carousel Styles */
+.embla {
+  --slide-spacing: 1.5rem;
+  --slide-size: 85%;
+  --slide-height: 19rem;
+  padding: 1.6rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: relative;
+  max-width: 100%;
+}
+
+.embla__viewport {
+  overflow: visible;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
+  margin-left: calc(var(--slide-spacing) * -1);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  position: relative;
+  transition: all 0.4s ease;
+  opacity: 0.6;
+  transform: scale(0.92);
+  filter: blur(1.5px);
+  pointer-events: auto;
+  display: flex;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.embla__slide > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease;
+}
+
+.embla__slide--current {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  z-index: 10;
+}
+
+.embla__slide__card--current {
+  box-shadow: 0 10px 25px rgba(var(--accent-primary-rgb), 0.2);
+  border-color: var(--accent-primary);
+}
+
+.embla__slide:hover {
+  transform: translateY(-3px) scale(0.94);
+}
+
+.embla__slide--current:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Ensure we can see the full card when focused/hovered */
+.embla__wrapper {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .embla {
+    --slide-size: 50%;
+    --slide-spacing: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla {
+    --slide-size: 33.33%;
+    --slide-spacing: 2rem;
+  }
+}
+
+/* Safari fix */
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    .embla__container {
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+    }
+    
+    .embla__slide {
+      -webkit-transform: translateZ(0) scale(0.92);
+      transform: translateZ(0) scale(0.92);
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      filter: blur(1.5px);
+      -webkit-backface-visibility: hidden;
+      -webkit-perspective: 1000;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .embla__slide--current {
+      -webkit-transform: translateZ(0) scale(1);
+      transform: translateZ(0) scale(1);
+      filter: blur(0);
+    }
+    
+    .embla__viewport {
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      -webkit-perspective: 1000;
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+.embla__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.8rem;
+}
+
+.embla__buttons {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.embla__button {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground);
+  border-radius: 50%;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.embla__button:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: scale(1.05);
+}
+
+.embla__button--disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.embla__button--prev:hover {
+  transform: scale(1.05) translateX(-2px);
+}
+
+.embla__button--next:hover {
+  transform: scale(1.05) translateX(2px);
+}
+
+.embla__button__svg {
+  width: 35%;
+  height: 35%;
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.embla__dot {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 2.4rem;
+  height: 0.3rem;
+  border-radius: 0.15rem;
+  background-color: var(--background-secondary);
+  transition: background-color 0.2s ease;
+}
+
+.embla__dot--selected {
+  background-color: var(--accent-primary);
+  width: 3.2rem;
+}
