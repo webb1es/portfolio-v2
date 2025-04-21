@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState, useRef, useEffect } from 'react';
+import { ReactNode, useRef } from 'react';
 import Link from 'next/link';
 
 interface CardProps {
@@ -24,11 +24,10 @@ export function Card({
   gradientBorder = false,
   glassEffect = false,
 }: CardProps) {
-  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  // Handle mouse movement for glow effect
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  // Handle mouse movement for glow effect - make it generic to work with both div and anchor elements
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!cardRef.current) return;
     
     const rect = cardRef.current.getBoundingClientRect();
@@ -86,20 +85,14 @@ export function Card({
     ${className}
   `;
 
-  // Mouse event handlers for interactive cards
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
-
   // Wrap with Link if href is provided
   if (href) {
     return (
       <Link 
         href={href}
         className={cardStyles}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
-        ref={cardRef as any}
+        ref={cardRef as unknown as React.Ref<HTMLAnchorElement>}
       >
         {children}
       </Link>
@@ -110,8 +103,6 @@ export function Card({
   return (
     <div 
       className={cardStyles}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       ref={cardRef}
     >

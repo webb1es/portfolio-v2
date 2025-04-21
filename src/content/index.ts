@@ -1,6 +1,5 @@
 // Export all content from a central location
 import { Bio } from './types';
-import { ServiceDescription } from './types';
 import { Testimonial } from './types';
 import { CaseStudyOutline } from './types';
 import { BlogArticleIdea } from './types';

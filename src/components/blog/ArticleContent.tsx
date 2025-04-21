@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {BlogPost} from '@/data/blog';
 import {AnimatedElement} from '@/components/ui/AnimatedElement';
 import type {Components} from 'react-markdown';
@@ -158,9 +159,11 @@ export function ArticleContent({article}: ArticleContentProps) {
                         <div className="relative w-16 h-16 rounded-full p-[2px] bg-instagram-gradient overflow-hidden group flex-shrink-0">
                           <div className="absolute inset-0 rounded-full bg-instagram-gradient opacity-75 group-hover:opacity-100 transition-opacity"></div>
                           <div className="relative h-full w-full rounded-full overflow-hidden border-2 border-transparent">
-                            <img
+                            <Image
                               src="https://drive.google.com/uc?export=view&id=1Di9jDPJyHhh9OPr_d5F1-OmSV5XN3prx"
                               alt="Webbies"
+                              width={64}
+                              height={64}
                               className="h-full w-full object-cover rounded-full transition-transform group-hover:scale-110 duration-300"
                             />
                           </div>

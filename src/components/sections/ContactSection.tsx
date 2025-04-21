@@ -34,7 +34,7 @@ export function ContactSection() {
           {services.length > 0 && (
             <AnimatedElement delay={0.2} className="mb-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {services.slice(0, 4).map((service, index) => (
+                {services.slice(0, 4).map((service) => (
                   <div key={service.id} className="bg-surface border border-border rounded-lg p-4">
                     <h3 className="font-semibold mb-2">{service.title}</h3>
                     <p className="text-sm text-foreground-secondary">

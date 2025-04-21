@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ServiceDescription } from '@/content/types';
-import { getServiceById, getRelevantTestimonials } from '@/content';
+import { getServiceById } from '@/content';
 import { AnimatedElement } from '@/components/ui/AnimatedElement';
 import { StrategicTestimonial } from '@/components/ui/StrategicTestimonial';
 

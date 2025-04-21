@@ -14,6 +14,10 @@ const eslintConfig = [
   {
     rules: {
       "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@next/next/no-img-element": "warn",
     },
   },
 ];

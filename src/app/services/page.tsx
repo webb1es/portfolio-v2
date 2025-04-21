@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { AnimatedElement } from '@/components/ui/AnimatedElement';
 import { BiographySection } from '@/components/sections/BiographySection';
 import { StrategicTestimonial } from '@/components/ui/StrategicTestimonial';
@@ -48,7 +47,7 @@ export default function ServicesPage() {
         {/* Service tabs */}
         <AnimatedElement delay={0.1} className="mb-12">
           <div className="flex flex-wrap justify-center gap-2 md:gap-4">
-            {services.map((service, index) => (
+            {services.map((service) => (
               <Button
                 key={service.id}
                 onClick={() => setActiveService(service.id)}

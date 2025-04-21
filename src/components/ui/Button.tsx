@@ -2,6 +2,7 @@
 
 import { ReactNode, ButtonHTMLAttributes, useState } from 'react';
 import Link from 'next/link';
+import { LinkProps } from 'next/link';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -14,6 +15,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   animated?: boolean;
   glowing?: boolean;
 }
+
+// Type for Link component props
+type ButtonLinkProps = Omit<ButtonProps, keyof LinkProps> & LinkProps;
 
 export function Button({
   children,
@@ -92,7 +96,7 @@ export function Button({
     <Link
       href={href}
       className={buttonClasses}
-      {...(props as any)}
+      {...(props as Omit<ButtonLinkProps, 'href' | 'className'>)}
     >
       {buttonContent}
     </Link>

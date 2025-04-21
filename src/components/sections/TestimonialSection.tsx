@@ -9,7 +9,14 @@ export function TestimonialSection() {
   const [progress, setProgress] = useState(0);
 
   // Import testimonials from content
-  const [strategicTestimonials, setStrategicTestimonials] = useState<any[]>([]);
+  const [strategicTestimonials, setStrategicTestimonials] = useState<{
+    id: number | string;
+    name: string;
+    role: string;
+    initials: string;
+    color: string;
+    content: string;
+  }[]>([]);
   
   // Load testimonials from content
   useEffect(() => {
@@ -17,7 +24,15 @@ export function TestimonialSection() {
     const contentTestimonials = getAllTestimonials();
     
     // Map to the expected format
-    const formattedTestimonials = contentTestimonials.map((t: any, index: number) => {
+    const formattedTestimonials = contentTestimonials.map((t: {
+      id: number | string;
+      isAnonymized: boolean;
+      clientTitle: string;
+      clientName: string;
+      clientCompany?: string;
+      focus: string;
+      content: string;
+    }) => {
       const colorMap: {[key: string]: string} = {
         'problem-solving': 'primary',
         'communication': 'secondary',
