@@ -66,7 +66,7 @@ export default function CaseStudyPage() {
             {/* Bio section with appropriate focus for this project */}
             <BiographySection 
                 variant="case-study" 
-                focusArea={project.type === 'web-application' ? 'technical problem-solving' : 'consulting and collaboration'} 
+                focusArea={project.technologies.some(t => t.category === 'frontend') ? 'technical problem-solving' : 'consulting and collaboration'} 
             />
             
             {/* Content-aware CTA */}

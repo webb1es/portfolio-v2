@@ -1,51 +1,54 @@
 'use client';
 
-import { ReactNode, ButtonHTMLAttributes, useState } from 'react';
+import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import Link from 'next/link';
 import { LinkProps } from 'next/link';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
+// Base button props without children
+interface BaseButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link' | 'fiery';
   size?: 'sm' | 'md' | 'lg';
-  href?: string;
   fullWidth?: boolean;
   icon?: ReactNode;
   iconPosition?: 'left' | 'right';
   animated?: boolean;
   glowing?: boolean;
+  className?: string;
 }
 
-// Type for Link component props
-type ButtonLinkProps = Omit<ButtonProps, keyof LinkProps> & LinkProps;
+// Button element props
+type ButtonElementProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement> & {
+  href?: undefined;
+};
 
-export function Button({
-  children,
-  variant = 'primary',
-  size = 'md',
-  href,
-  fullWidth = false,
-  className = '',
-  icon,
-  iconPosition = 'right',
-  animated = false,
-  glowing = false,
-  ...props
-}: ButtonProps) {
-  const [isClicked, setIsClicked] = useState(false);
+// Anchor element props
+type AnchorElementProps = BaseButtonProps & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> & LinkProps & {
+  href: string;
+};
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 300);
-    props.onClick?.(e);
-  };
+// Combined props type
+type ButtonProps = ButtonElementProps | AnchorElementProps;
 
+export function Button(props: ButtonProps) {
+  const {
+    children,
+    variant = 'primary',
+    size = 'md',
+    href,
+    fullWidth = false,
+    className = '',
+    icon,
+    iconPosition = 'right',
+    animated = false,
+    glowing = false,
+    ...rest
+  } = props;
+  
   // Common classes for button styling
   const baseClasses = `
     inline-flex items-center justify-center font-medium relative
     transition-all duration-300 overflow-hidden
     ${fullWidth ? 'w-full' : ''}
-    ${isClicked ? 'animate-click' : ''}
   `;
 
   // Size-specific classes
@@ -92,19 +95,22 @@ export function Button({
   );
 
   // Return either a Link or Button component
-  return href ? (
-    <Link
-      href={href}
-      className={buttonClasses}
-      {...(props as Omit<ButtonLinkProps, 'href' | 'className'>)}
-    >
-      {buttonContent}
-    </Link>
-  ) : (
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={buttonClasses}
+        {...(rest as Omit<AnchorElementProps, 'href' | 'className' | 'children'>)}
+      >
+        {buttonContent}
+      </Link>
+    );
+  }
+
+  return (
     <button
       className={buttonClasses}
-      onClick={handleClick}
-      {...props}
+      {...(rest as Omit<ButtonElementProps, 'className' | 'children'>)}
     >
       {buttonContent}
     </button>

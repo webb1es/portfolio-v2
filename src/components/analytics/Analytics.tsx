@@ -1,17 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { initGA, pageview } from '@/lib/analytics';
 
-export function Analytics() {
+// Component that uses useSearchParams
+function AnalyticsContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
-  useEffect(() => {
-    // Initialize Google Analytics
-    initGA();
-  }, []);
 
   useEffect(() => {
     // Track page views when path changes
@@ -25,5 +21,18 @@ export function Analytics() {
     }
   }, [pathname, searchParams]);
 
-  return null; // This component doesn't render anything
+  return null;
+}
+
+export function Analytics() {
+  useEffect(() => {
+    // Initialize Google Analytics
+    initGA();
+  }, []);
+
+  return (
+    <Suspense fallback={null}>
+      <AnalyticsContent />
+    </Suspense>
+  );
 }

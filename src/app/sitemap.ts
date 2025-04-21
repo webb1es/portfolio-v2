@@ -44,13 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog routes
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedAt),
+    lastModified: new Date(post.publishedDate),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   // Get unique categories and tags
-  const categories = [...new Set(blogPosts.map(post => post.category))];
+  const categories = [...new Set(blogPosts.flatMap(post => post.categories))];
   const tags = [...new Set(blogPosts.flatMap(post => post.tags))];
 
   // Category routes
