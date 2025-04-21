@@ -66,6 +66,7 @@ module.exports = {
         'primary-gradient': 'linear-gradient(135deg, var(--tw-gradient-stops))',
         'secondary-gradient': 'linear-gradient(135deg, var(--tw-gradient-stops))',
         'highlight-gradient': 'linear-gradient(135deg, var(--tw-gradient-stops))',
+        'instagram-gradient': 'linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%)',
       },
       gradientColorStops: {
         'primary-start': '#8b5cf6',

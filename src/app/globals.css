@@ -8,20 +8,20 @@
   --foreground: #0f172a;
   --foreground-secondary: #334155;
   
-  /* Original color palette */
-  --accent-primary: #7c3aed;   /* Violet-600 */
-  --accent-primary-rgb: 124, 58, 237; /* RGB format for animations */
-  --accent-primary-light: #ddd6fe; /* Violet-200 */
-  --accent-primary-glow: #8b5cf6; /* Violet-500 - slightly brighter for glow */
-  --accent-secondary: #2563eb; /* Blue-600 */
-  --accent-secondary-rgb: 37, 99, 235; /* RGB format */
-  --accent-secondary-glow: #3b82f6; /* Blue-500 - slightly brighter for glow */
-  --accent-tertiary: #0891b2;  /* Cyan-600 */
-  --accent-tertiary-rgb: 8, 145, 178; /* RGB format */
-  --accent-tertiary-glow: #06b6d4; /* Cyan-500 - slightly brighter for glow */
-  --accent-quaternary: #4f46e5; /* Indigo-600 */
-  --accent-quaternary-rgb: 79, 70, 229; /* RGB format */
-  --accent-quaternary-glow: #6366f1; /* Indigo-500 - slightly brighter for glow */
+  /* Instagram-inspired color palette */
+  --accent-primary: #833AB4;   /* Instagram Purple */
+  --accent-primary-rgb: 131, 58, 180; /* RGB format for animations */
+  --accent-primary-light: #ddd6fe; /* Light variant */
+  --accent-primary-glow: #833AB4; /* Purple glow */
+  --accent-secondary: #FD1D1D; /* Instagram Red */
+  --accent-secondary-rgb: 253, 29, 29; /* RGB format */
+  --accent-secondary-glow: #FD1D1D; /* Red glow */
+  --accent-tertiary: #FCB045;  /* Instagram Yellow/Orange */
+  --accent-tertiary-rgb: 252, 176, 69; /* RGB format */
+  --accent-tertiary-glow: #FCB045; /* Yellow/Orange glow */
+  --accent-quaternary: #833AB4; /* Instagram Purple again */
+  --accent-quaternary-rgb: 131, 58, 180; /* RGB format */
+  --accent-quaternary-glow: #833AB4; /* Purple glow */
   
   --surface: #ffffff;
   --surface-secondary: #f9fafb;
@@ -49,20 +49,20 @@
   --foreground: #f8fafc;   /* Slate-50 */
   --foreground-secondary: #cbd5e1; /* Slate-300 */
   
-  /* Original color palette for dark mode */
-  --accent-primary: #8b5cf6;   /* Violet-500 */
-  --accent-primary-rgb: 139, 92, 246; /* RGB format for animations */
-  --accent-primary-light: #1e1b4b; /* Indigo-950 as dark variant */
-  --accent-primary-glow: #a78bfa; /* Violet-400 - slightly brighter for glow */
-  --accent-secondary: #3b82f6; /* Blue-500 */
-  --accent-secondary-rgb: 59, 130, 246; /* RGB format */
-  --accent-secondary-glow: #60a5fa; /* Blue-400 - slightly brighter for glow */
-  --accent-tertiary: #06b6d4;  /* Cyan-500 */
-  --accent-tertiary-rgb: 6, 182, 212; /* RGB format */
-  --accent-tertiary-glow: #22d3ee; /* Cyan-400 - slightly brighter for glow */
-  --accent-quaternary: #6366f1; /* Indigo-500 */
-  --accent-quaternary-rgb: 99, 102, 241; /* RGB format */
-  --accent-quaternary-glow: #818cf8; /* Indigo-400 - slightly brighter for glow */
+  /* Instagram-inspired color palette for dark mode */
+  --accent-primary: #833AB4;   /* Instagram Purple */
+  --accent-primary-rgb: 131, 58, 180; /* RGB format for animations */
+  --accent-primary-light: #1e1b4b; /* Dark variant */
+  --accent-primary-glow: #833AB4; /* Purple glow */
+  --accent-secondary: #FD1D1D; /* Instagram Red */
+  --accent-secondary-rgb: 253, 29, 29; /* RGB format */
+  --accent-secondary-glow: #FD1D1D; /* Red glow */
+  --accent-tertiary: #FCB045;  /* Instagram Yellow/Orange */
+  --accent-tertiary-rgb: 252, 176, 69; /* RGB format */
+  --accent-tertiary-glow: #FCB045; /* Yellow/Orange glow */
+  --accent-quaternary: #833AB4; /* Instagram Purple again */
+  --accent-quaternary-rgb: 131, 58, 180; /* RGB format */
+  --accent-quaternary-glow: #833AB4; /* Purple glow */
   
   --surface: #1e293b;   /* Slate-800 */
   --surface-secondary: #0f172a; /* Slate-900 */
@@ -98,20 +98,20 @@
     --foreground: #f8fafc;
     --foreground-secondary: #cbd5e1;
     
-    /* Original color palette for dark mode */
-    --accent-primary: #8b5cf6;
-    --accent-primary-rgb: 139, 92, 246;
+    /* Instagram-inspired color palette for dark mode */
+    --accent-primary: #833AB4;
+    --accent-primary-rgb: 131, 58, 180;
     --accent-primary-light: #1e1b4b;
-    --accent-primary-glow: #a78bfa;
-    --accent-secondary: #3b82f6;
-    --accent-secondary-rgb: 59, 130, 246;
-    --accent-secondary-glow: #60a5fa;
-    --accent-tertiary: #06b6d4;
-    --accent-tertiary-rgb: 6, 182, 212;
-    --accent-tertiary-glow: #22d3ee;
-    --accent-quaternary: #6366f1;
-    --accent-quaternary-rgb: 99, 102, 241;
-    --accent-quaternary-glow: #818cf8;
+    --accent-primary-glow: #833AB4;
+    --accent-secondary: #FD1D1D;
+    --accent-secondary-rgb: 253, 29, 29;
+    --accent-secondary-glow: #FD1D1D;
+    --accent-tertiary: #FCB045;
+    --accent-tertiary-rgb: 252, 176, 69;
+    --accent-tertiary-glow: #FCB045;
+    --accent-quaternary: #833AB4;
+    --accent-quaternary-rgb: 131, 58, 180;
+    --accent-quaternary-glow: #833AB4;
     
     --surface: #1e293b;
     --surface-secondary: #0f172a;
@@ -128,9 +128,10 @@
 
 /* Enhanced Gradient Utilities */
 .bg-primary-gradient {
-  background-image: linear-gradient(135deg, 
-    var(--accent-primary-glow) 0%, 
-    var(--accent-secondary-glow) 100%
+  background-image: linear-gradient(90deg, 
+    rgba(131, 58, 180, 1) 0%, 
+    rgba(253, 29, 29, 1) 50%, 
+    rgba(252, 176, 69, 1) 100%
   );
   background-size: 200% 200%;
   position: relative;
@@ -153,9 +154,10 @@
 }
 
 .bg-primary-gradient-animated {
-  background-image: linear-gradient(135deg, 
-    var(--accent-primary-glow) 0%, 
-    var(--accent-secondary-glow) 100%
+  background-image: linear-gradient(90deg, 
+    rgba(131, 58, 180, 1) 0%, 
+    rgba(253, 29, 29, 1) 50%, 
+    rgba(252, 176, 69, 1) 100%
   );
   background-size: 200% 200%;
   animation: gradient 5s ease infinite;
@@ -302,14 +304,14 @@
 }
 
 .text-primary-gradient {
-  background-image: linear-gradient(135deg, 
-    var(--accent-primary) 0%, 
-    var(--accent-secondary) 100%
+  background-image: linear-gradient(90deg, 
+    rgba(131, 58, 180, 1) 0%, 
+    rgba(253, 29, 29, 1) 50%, 
+    rgba(252, 176, 69, 1) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  display: inline;
 }
 
 .text-secondary-gradient {
@@ -700,4 +702,63 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-primary);
+}
+
+/* Instagram Gradient */
+.bg-instagram-gradient {
+  background: #833AB4;
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  background-size: 200% 200%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-instagram-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+.bg-instagram-gradient-animated {
+  background: #833AB4;
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-instagram-gradient-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  animation: shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Text with Instagram gradient */
+.text-instagram-gradient {
+  background-image: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradient 8s ease infinite;
 }

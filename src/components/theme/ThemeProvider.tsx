@@ -53,9 +53,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     // Update CSS variable for RBG values needed for animations
     const root = document.documentElement;
     if (effectiveTheme === 'dark') {
-      root.style.setProperty('--accent-primary-rgb', '248, 113, 113'); // Red-400 in RGB
+      root.style.setProperty('--accent-primary-rgb', '131, 58, 180'); // Instagram Purple in RGB
     } else {
-      root.style.setProperty('--accent-primary-rgb', '239, 68, 68'); // Red-500 in RGB
+      root.style.setProperty('--accent-primary-rgb', '131, 58, 180'); // Instagram Purple in RGB
     }
   }, [theme, mounted]);
 
@@ -74,9 +74,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         // Update CSS variable for RBG values
         const root = document.documentElement;
         if (systemTheme === 'dark') {
-          root.style.setProperty('--accent-primary-rgb', '248, 113, 113'); // Red-400 in RGB
+          root.style.setProperty('--accent-primary-rgb', '131, 58, 180'); // Instagram Purple in RGB
         } else {
-          root.style.setProperty('--accent-primary-rgb', '239, 68, 68'); // Red-500 in RGB
+          root.style.setProperty('--accent-primary-rgb', '131, 58, 180'); // Instagram Purple in RGB
         }
       }
     };
