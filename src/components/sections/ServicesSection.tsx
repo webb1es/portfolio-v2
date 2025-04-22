@@ -13,9 +13,7 @@ export function ServicesSection() {
     containScroll: 'keepSnaps',
     speed: 30,
     duration: 40,
-    startIndex: 1,
-    inViewThreshold: 0.7,
-    slidesToScroll: 1
+    startIndex: 1
   };
 
   return (

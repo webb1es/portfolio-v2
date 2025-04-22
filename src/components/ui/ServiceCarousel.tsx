@@ -27,25 +27,13 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({
       playOnInit: true
     })
   );
-
-  // Detect if we're on Safari
-  const [isSafari, setIsSafari] = useState(false);
-  
-  useEffect(() => {
-    // Safari detection
-    const isSafariBrowser = 
-      /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || 
-      /Apple/.test(navigator.vendor);
-    setIsSafari(isSafariBrowser);
-  }, []);
   
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       ...options,
       watchDrag: false, // Better support for Safari
-      speed: isSafari ? 20 : 30, // Adjust speed for Safari
-      startIndex: 1, // Start with the second slide for non-loop carousels
-      inViewThreshold: 0.7 // Adjust threshold for better Safari performance
+      speed: 30, // Slower transitions to reduce jittering
+      startIndex: 1 // Start with the second slide for non-loop carousels
     }, 
     [autoplay.current]
   );
@@ -57,15 +45,15 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({
 
   const scrollPrev = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
-    emblaApi && emblaApi.scrollPrev({ jump: isSafari });
+    emblaApi && emblaApi.scrollPrev({ jump: true });
     autoplay.current.reset();
-  }, [emblaApi, isSafari]);
+  }, [emblaApi]);
   
   const scrollNext = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
-    emblaApi && emblaApi.scrollNext({ jump: isSafari });
+    emblaApi && emblaApi.scrollNext({ jump: true });
     autoplay.current.reset();
-  }, [emblaApi, isSafari]);
+  }, [emblaApi]);
   
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -91,31 +79,6 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({
       emblaApi.off('reInit', onSelect);
     };
   }, [emblaApi, onSelect]);
-  
-  // Special scrollTo function for better Safari behavior
-  const safeScrollTo = useCallback((index: number) => {
-    if (!emblaApi) return;
-    
-    if (isSafari) {
-      // Use a smoother approach for Safari
-      requestAnimationFrame(() => {
-        emblaApi.scrollTo(index, false);
-        
-        // Update states immediately for responsive UI
-        setSelectedIndex(index);
-        const canScrollPrev = index > 0;
-        const canScrollNext = index < (scrollSnaps.length - 1);
-        setPrevBtnDisabled(!canScrollPrev);
-        setNextBtnDisabled(!canScrollNext);
-      });
-    } else {
-      // Regular approach for other browsers
-      emblaApi.scrollTo(index, false);
-      setSelectedIndex(index);
-    }
-    
-    autoplay.current.reset();
-  }, [emblaApi, isSafari, scrollSnaps.length]);
 
   // Navigate to service page for centered slide or navigate directly to the clicked slide
   const handleSlideClick = useCallback((index: number, serviceId: string) => {
@@ -123,10 +86,20 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({
       // Navigate to service page if it's the current slide
       router.push(`/services#${serviceId}`);
     } else {
-      // Use the safe scroll function
-      safeScrollTo(index);
+      // Skip animation and immediately jump to the clicked slide
+      emblaApi?.scrollTo(index, false);
+      // Force update the selected index immediately
+      setSelectedIndex(index);
+      // Update button states
+      if (emblaApi) {
+        const canScrollPrev = index > 0;
+        const canScrollNext = index < (scrollSnaps.length - 1);
+        setPrevBtnDisabled(!canScrollPrev);
+        setNextBtnDisabled(!canScrollNext);
+      }
+      autoplay.current.reset();
     }
-  }, [router, selectedIndex, safeScrollTo]);
+  }, [emblaApi, router, selectedIndex, scrollSnaps.length]);
 
   return (
     <div className="embla">
@@ -225,7 +198,9 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({
               className={`embla__dot ${index === selectedIndex ? 'embla__dot--selected' : ''}`}
               onClick={(e) => {
                 e.stopPropagation();
-                safeScrollTo(index);
+                emblaApi?.scrollTo(index, false);
+                setSelectedIndex(index);
+                autoplay.current.reset();
               }}
               aria-label={`Go to slide ${index + 1}`}
             />

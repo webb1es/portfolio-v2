@@ -820,7 +820,7 @@ body {
   min-width: 0;
   padding-left: var(--slide-spacing);
   position: relative;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.2, 0.0, 0.0, 1.0);
   opacity: 0.6;
   transform: scale(0.92);
   filter: blur(1.5px);
@@ -828,6 +828,9 @@ body {
   display: flex;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  will-change: transform, opacity, filter;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .embla__slide > div {
@@ -835,7 +838,11 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.2, 0.0, 0.0, 1.0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .embla__slide--current {
@@ -843,6 +850,7 @@ body {
   transform: scale(1);
   filter: blur(0);
   z-index: 10;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1.0);
 }
 
 .embla__slide__card--current {
@@ -882,34 +890,41 @@ body {
   }
 }
 
-/* Safari fix */
+/* Safari-specific fixes for the jumping issue */
 @media not all and (min-resolution:.001dpcm) { 
   @supports (-webkit-appearance:none) {
     .embla__container {
       will-change: transform;
       -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
     }
     
     .embla__slide {
       -webkit-transform: translateZ(0) scale(0.92);
       transform: translateZ(0) scale(0.92);
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: all 0.4s cubic-bezier(0.2, 0.0, 0.0, 1.0);
       filter: blur(1.5px);
-      -webkit-backface-visibility: hidden;
       -webkit-perspective: 1000;
-      -webkit-font-smoothing: antialiased;
+      perspective: 1000;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
     
     .embla__slide--current {
       -webkit-transform: translateZ(0) scale(1);
       transform: translateZ(0) scale(1);
       filter: blur(0);
+      transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1.0);
     }
     
+    /* Prevent jump at transition end */
     .embla__viewport {
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
-      -webkit-perspective: 1000;
       -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
   }
 }
