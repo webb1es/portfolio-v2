@@ -11,6 +11,8 @@ import { AnimatedElement } from '@/components/ui/AnimatedElement';
 import { AuthorBio } from '@/components/blog/AuthorBio';
 import { ContentAwareCTA } from '@/components/ui/ContentAwareCTA';
 
+export const runtime = 'edge';
+
 export default function BlogArticlePage() {
     const params = useParams();
     const [article, setArticle] = useState<BlogPost | null>(null);

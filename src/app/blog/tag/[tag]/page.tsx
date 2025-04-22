@@ -7,6 +7,8 @@ import { getPostsByTag, getAllTags, BlogPost } from '@/data/blog';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { AnimatedElement } from '@/components/ui/AnimatedElement';
 
+export const runtime = 'edge';
+
 export default function TagPage() {
     const params = useParams();
     const [tag, setTag] = useState<string>('');

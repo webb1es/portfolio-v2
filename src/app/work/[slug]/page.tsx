@@ -11,6 +11,8 @@ import { BiographySection } from '@/components/sections/BiographySection';
 import { ContentAwareCTA } from '@/components/ui/ContentAwareCTA';
 import { StrategicTestimonial } from '@/components/ui/StrategicTestimonial';
 
+export const runtime = 'edge';
+
 export default function CaseStudyPage() {
     const params = useParams();
     const [project, setProject] = useState<Project | null>(null);
