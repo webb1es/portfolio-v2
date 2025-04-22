@@ -11,9 +11,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    optimizeCss: true,
-  },
   poweredByHeader: false,
   compress: true,
   eslint: {

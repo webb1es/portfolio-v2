@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useCallback, useEffect } from 'react';
-import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react';
+import useEmblaCarousel from 'embla-carousel-react';
+import type { EmblaOptionsType } from 'embla-carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { serviceDescriptions } from '@/content/services';
 import { useRouter } from 'next/navigation';
@@ -32,7 +33,6 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({
     { 
       ...options,
       watchDrag: false, // Better support for Safari
-      speed: 30, // Slower transitions to reduce jittering
       startIndex: 1 // Start with the second slide for non-loop carousels
     }, 
     [autoplay.current]
@@ -45,13 +45,13 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({
 
   const scrollPrev = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
-    emblaApi && emblaApi.scrollPrev({ jump: true });
+    emblaApi && emblaApi.scrollPrev();
     autoplay.current.reset();
   }, [emblaApi]);
   
   const scrollNext = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
-    emblaApi && emblaApi.scrollNext({ jump: true });
+    emblaApi && emblaApi.scrollNext();
     autoplay.current.reset();
   }, [emblaApi]);
   
