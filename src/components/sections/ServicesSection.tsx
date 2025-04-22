@@ -11,8 +11,6 @@ export function ServicesSection() {
     align: 'center',
     dragFree: false,
     containScroll: 'keepSnaps',
-    speed: 30,
-    duration: 40,
     startIndex: 1
   };
 
